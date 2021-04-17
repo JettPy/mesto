@@ -30,8 +30,8 @@ saveButton.addEventListener('click', function(event) {
 
   event.preventDefault();
 
-  name.textContent = document.querySelector('.popup__form').elements.name.value;
-  status.textContent = document.querySelector('.popup__form').elements.status.value;
+  name.textContent = form.elements.name.value;
+  status.textContent = form.elements.status.value;
 
   popUpToggler();
 });

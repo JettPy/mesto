@@ -5,6 +5,11 @@
   position: relative;
   left: 235px;
   top: 10px;
+  transition: opacity 0.3s linear;
+}
+
+.button_type_close:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 600px) {
