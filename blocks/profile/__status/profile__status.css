@@ -1,14 +1,19 @@
 .profile__status {
   margin: 0;
+  max-width: 300px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 760px) {
 
   .profile__status {
+    max-width: 200px;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

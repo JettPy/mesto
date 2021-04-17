@@ -1,0 +1,18 @@
+.button_type_close {
+  align-self: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: relative;
+  left: 235px;
+  top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .button_type_close {
+    width: 39px;
+    left: 125px;
+    top: -13px;
+  }
+
+}

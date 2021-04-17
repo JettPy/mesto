@@ -1,0 +1,13 @@
+.button_type_save {
+  width: 358px;
+  height: 50px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .button_type_save {
+    width: 238px;
+    height: 46px;
+  }
+
+}

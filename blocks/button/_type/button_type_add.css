@@ -1,4 +1,4 @@
-.profile__button_type_add {
+.button_type_add {
   width: 150px;
   height: 50px;
   border: 2px solid #FFFFFF;
@@ -7,7 +7,7 @@
 
 @media screen and (max-width: 980px) {
 
-  .profile__button_type_add {
+  .button_type_add {
     width: 100%;
     max-width: 300px;
   }

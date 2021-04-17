@@ -1,4 +1,4 @@
-.profile__button {
+.button {
   margin: 0;
   padding: 0;
   display: flex;
@@ -7,4 +7,6 @@
   background-color: #000;
   color: #FFF;
   box-sizing: border-box;
+  outline: none;
+  cursor: pointer;
 }
