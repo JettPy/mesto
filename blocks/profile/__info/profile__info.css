@@ -14,5 +14,7 @@
   .profile__info {
     margin-left: 24px;
     margin-top: 26px;
+    row-gap: 14px;
+    column-gap: 10px;
   }
 }

@@ -22,3 +22,12 @@
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__button/_type/profile__button_type_edit.css);
 @import url(../blocks/profile/__button/_type/profile__button_type_add.css);
+
+/*   elements   */
+
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__group/element__group.css);
+@import url(../blocks/element/__title/element__title.css);
+@import url(../blocks/element/__like/element__like.css);

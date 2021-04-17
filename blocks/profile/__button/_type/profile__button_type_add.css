@@ -9,5 +9,6 @@
 
   .profile__button_type_add {
     width: 100%;
+    max-width: 300px;
   }
 }
