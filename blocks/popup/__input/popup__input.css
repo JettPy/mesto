@@ -1,6 +1,5 @@
-.popup__status {
+.popup__input {
   margin-top: 30px;
-  margin-bottom: 48px;
   width: 100%;
   align-self: flex-start;
   border: none;
@@ -12,3 +11,10 @@
   line-height: 17px;
   color: #000;
 }
+
+.popup__input:first-child {
+  margin-top: 0;
+}
+
+ /* margin-top
+    margin-bottom*/

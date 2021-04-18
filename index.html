@@ -10,21 +10,8 @@
 
 <body class="root">
 
-  <div class="popup">
-    <button class="button button_type_close" type="button"><img class="button__close-image" src="./images/close-icon.svg" alt="Закрыть"></button>
-    <div class="popup__content">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form">
-        <input class="popup__name" type="text" name="name">
-        <input class="popup__status" type="text" name="status">
-      </form>
-      <button class="button button_type_save" type="button">Сохрнить</button>
-    </div>
-  </div>
-
   <header class="header">
     <img src="./images/logo.svg" alt="Место" class="header__logo">
-    <div class="header__line"></div>
   </header>
 
   <main>
@@ -35,10 +22,10 @@
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__status">Исследователь океана</p>
-          <button class="button button_type_edit" type="button"><img class="button__edit-image" src="./images/edit-icon.svg" alt="Редактирование"></button>
+          <button class="button button_type_edit" aria-label="Редактировать профиль" type="button"></button>
         </div>
       </div>
-      <button class="button button_type_add" type="button"><img class="button__add-image" src="./images/add-icon.svg" alt="Редактирование"></button>
+      <button class="button button_type_add" aria-label="Добавить картинку" type="button"></button>
     </section>
 
     <section>
@@ -47,48 +34,42 @@
           <img src="./images/karachaevo.jpg" alt="Карачаево" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Карачаево</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Домбай</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Гора Эльбрус</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/dombai.jpg" alt="Домбай" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Домбай</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
         <li class="element">
           <img src="./images/karachaevo.jpg" alt="Карачаево" class="element__image">
           <div class="element__group">
             <h2 class="element__title">Карачаево-Черкесская Республика</h2>
-            <button class="button button_type_like" type="button"><img src="./images/like-icon.svg" alt="Лайк"
-                class="element__like"></button>
+            <button class="button button_type_like" aria-label="Лайк" type="button"></button>
           </div>
         </li>
       </ul>
@@ -99,6 +80,18 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
+
+  <div class="popup">
+    <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
+    <div class="popup__content">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" name="profile-info">
+        <input class="popup__input popup__input_field_name" type="text" name="name">
+        <input class="popup__input popup__input_field_status" type="text" name="status">
+        <button class="button button_type_save" aria-label="Сохрнить" type="submit">Сохрнить</button>
+      </form>
+    </div>
+  </div>
 
   <script src="./scripts/script.js"></script>
 

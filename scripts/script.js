@@ -1,41 +1,33 @@
-let name = document.querySelector('.profile__name');
-let status = document.querySelector('.profile__status');
+const name = document.querySelector('.profile__name');
+const status = document.querySelector('.profile__status');
+const form = document.querySelector('.popup__form');
+const inputName = document.querySelector('.popup__input_field_name');
+const inputStatus = document.querySelector('.popup__input_field_status');
+const popup = document.querySelector('.popup');
+const editButton = document.querySelector('.button_type_edit');
+const closeButton = document.querySelector('.button_type_close');
 
-let form = document.querySelector('.popup__form');
-
-let editButton = document.querySelector('.button_type_edit');
-let closeButton = document.querySelector('.button_type_close');
-let saveButton = document.querySelector('.button_type_save');
-let addButton = document.querySelector('.button_type_add');
-
-function refresh() {
-  form.elements.name.value = name.textContent;
-  form.elements.status.value = status.textContent;
+function refresh() { //функция обновления полей в форме
+  inputName.value = name.textContent;
+  inputStatus.value = status.textContent;
 }
 
-function popUpToggler() {
-
-  let popup = document.querySelector('.popup');
-
-  popup.classList.toggle('popup_opened');
+function popUpOpen() { //функция открытия popup
   refresh();
+  popup.classList.add('popup_opened');
 }
 
-refresh();
+function popUpClose() { //функция закрытия popup
+  popup.classList.remove('popup_opened');
+}
 
-editButton.addEventListener('click', popUpToggler);
-closeButton.addEventListener('click', popUpToggler);
-
-saveButton.addEventListener('click', function(event) {
-
+function saveProfileData(event) { //функция сохранения имени и статуса пользователя
   event.preventDefault();
+  name.textContent = inputName.value;
+  status.textContent = inputStatus.value;
+  popUpClose();
+}
 
-  name.textContent = form.elements.name.value;
-  status.textContent = form.elements.status.value;
-
-  popUpToggler();
-});
-
-addButton.addEventListener('click', function() {
-  // console.log('Добавлено!');
-});
+editButton.addEventListener('click', popUpOpen);
+closeButton.addEventListener('click', popUpClose);
+form.addEventListener('submit', saveProfileData);

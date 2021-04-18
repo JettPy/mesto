@@ -2,6 +2,9 @@
   width: 24px;
   height: 24px;
   border: 1px solid #FFFFFF;
+  background-image: url(../../../images/edit-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
   transition: opacity 0.3s linear;
 }
 
@@ -14,5 +17,6 @@
   .button_type_edit {
     width: 18px;
     height: 18px;
+    background-size: 7.5px;
   }
 }
