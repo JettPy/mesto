@@ -37,5 +37,5 @@ saveButton.addEventListener('click', function(event) {
 });
 
 addButton.addEventListener('click', function() {
-  console.log('Добавлено!');
+  // console.log('Добавлено!');
 });
