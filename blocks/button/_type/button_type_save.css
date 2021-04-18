@@ -1,7 +1,7 @@
 .button_type_save {
   margin-top: 48px;
-  width: 358px;
-  height: 50px;
+  min-width: 358px;
+  min-height: 50px;
   border: none;
   border-radius: 2px;
   transition: opacity 0.3s linear;
@@ -15,8 +15,8 @@
 @media screen and (max-width: 600px) {
 
   .button_type_save {
-    width: 238px;
-    height: 46px;
+    min-width: 238px;
+    min-height: 46px;
   }
 
 }
