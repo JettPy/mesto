@@ -1,11 +1,11 @@
-const name = document.querySelector('.profile__name');
-const status = document.querySelector('.profile__status');
-const form = document.querySelector('.popup__form');
-const inputName = document.querySelector('.popup__input_field_name');
-const inputStatus = document.querySelector('.popup__input_field_status');
-const popup = document.querySelector('.popup');
-const editButton = document.querySelector('.button_type_edit');
-const closeButton = document.querySelector('.button_type_close');
+let name = document.querySelector('.profile__name');
+let status = document.querySelector('.profile__status');
+let form = document.querySelector('.popup__form');
+let inputName = document.querySelector('.popup__input_field_name');
+let inputStatus = document.querySelector('.popup__input_field_status');
+let popup = document.querySelector('.popup');
+let editButton = document.querySelector('.button_type_edit');
+let closeButton = document.querySelector('.button_type_close');
 
 function refresh() { //функция обновления полей в форме
   inputName.value = name.textContent;
