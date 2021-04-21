@@ -1,23 +1,12 @@
 .header {
-  padding-top: 45px;
   padding-bottom: 41px;
-  margin: auto;
-  width: 68.75%;
+  width: 100%;
   border-bottom: 1px solid #545454;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
 
   .header {
-    width: 88.125%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-
-  .header {
-    padding-top: 28px;
     padding-bottom: 31.6px;
-    width: 100%;
   }
 }

@@ -1,7 +1,8 @@
-/* .header__logo {
-} */
+.header__logo {
+  width: 142px;
+}
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 768px) {
 
   .header__logo {
     width: 103.74px;
