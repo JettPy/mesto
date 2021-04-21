@@ -1,5 +1,5 @@
 .footer__copyright {
-  margin: 66px auto 60px;
+  margin: 0;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -7,10 +7,12 @@
   color: #545454;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
+
   .footer__copyright {
-    margin: 48px 0 36px 19px;
+    margin-left: 19px;
     font-size: 14px;
     line-height: 17px;
   }
+
 }
