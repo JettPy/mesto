@@ -1,3 +1,22 @@
 .page__content {
+  margin: 40px auto 0;
+  width: 100%;
+  max-width: calc(1280px - 200px * 2 * 1280/1280);
+}
+
+@media screen and (max-width: 1024px) {
+
+  .page__content {
+    max-width: calc(1024px - 200px * 2 * 1024/1280);
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .page__content {
+    margin-top: 42px;
+    max-width: calc(768px - 200px * 2 * 768/1280);
+  }
 
 }

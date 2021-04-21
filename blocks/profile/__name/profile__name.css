@@ -1,6 +1,6 @@
 .profile__name {
   margin: 0;
-  max-width: 300px;
+  max-width: 294px;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -10,12 +10,10 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
 
   .profile__name {
-    max-width: 200px;
-    font-style: normal;
-    font-weight: 500;
+    max-width: 189px;
     font-size: 27px;
     line-height: 33px;
     text-align: center;

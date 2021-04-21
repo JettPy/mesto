@@ -1,6 +1,6 @@
 .button_type_edit {
-  min-width: 24px;
-  min-height: 24px;
+  width: 24px;
+  height: 24px;
   border: 1px solid #FFFFFF;
   background-image: url(../../../images/edit-icon.svg);
   background-position: center;
@@ -12,11 +12,11 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
 
   .button_type_edit {
-    min-width: 18px;
-    min-height: 18px;
+    width: 18px;
+    height: 18px;
     background-size: 7.5px;
   }
 }
