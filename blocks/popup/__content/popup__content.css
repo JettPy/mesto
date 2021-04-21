@@ -1,5 +1,4 @@
 .popup__content {
-  padding-bottom: 37px;
   width: 430px;
   display: flex;
   flex-direction: column;
@@ -9,10 +8,9 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 
   .popup__content {
-    padding-bottom: 25px;
     width: 282px;
   }
 
