@@ -33,10 +33,12 @@
 @import url(../blocks/content/__section/content__section.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/button/_type/button_type_del.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__group/element__group.css);
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/button/_type/button_type_like.css);
+@import url(../blocks/button/_active/button_active.css);
 
 /*   footer   */
 
