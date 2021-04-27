@@ -1,18 +1,49 @@
+const popup = document.querySelectorAll('.popup');
+//   profile
 const name = document.querySelector('.profile__name');
 const status = document.querySelector('.profile__status');
-const popup = document.querySelectorAll('.popup');
 const editButton = document.querySelector('.button_type_edit');
-const closeEditButton = popup[0].querySelector('.button_type_close');
+//   profile popup
 const profileForm = popup[0].querySelector('.popup__form');
 const inputName = popup[0].querySelector('.popup__input_field_name');
 const inputStatus = popup[0].querySelector('.popup__input_field_status');
+const closeEditButton = popup[0].querySelector('.button_type_close');
+//   elements
 const addButton = document.querySelector('.button_type_add');
-const closeElementButton = popup[1].querySelector('.button_type_close');
-const elementForm = popup[1].querySelector('.popup__form');
-const inputTitle = popup[1].querySelector('.popup__input_field_name');
-const inputImage = popup[1].querySelector('.popup__input_field_status');
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#element').content;
+//   element popup
+const elementForm = popup[1].querySelector('.popup__form');
+const inputTitle = popup[1].querySelector('.popup__input_field_title');
+const inputImage = popup[1].querySelector('.popup__input_field_image');
+const closeElementButton = popup[1].querySelector('.button_type_close');
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
 function refresh() { //функция обновления полей в форме
   inputName.value = name.textContent;
@@ -25,19 +56,6 @@ function likeClck(event) { //функция активации лайка
 
 function deleteClck(event) { //функция удаления карточки с картинкой
   event.target.closest('.element').remove();
-}
-
-function loadElement(card) { //функция загрузки карточек с картинками
-  const cardElement = elementTemplate.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__image').src = card.link;
-  cardElement.querySelector('.element__title').textContent = card.name;
-  elements.append(cardElement);
-
-  const likeButton = cardElement.querySelector('.button_type_like');
-  const deliteButton = cardElement.querySelector('.button_type_del');
-
-  likeButton.addEventListener('click', likeClck);
-  deliteButton.addEventListener('click', deleteClck);
 }
 
 function addElement(card) { //функция добавление карточек с картинками
@@ -90,34 +108,7 @@ function saveElementData(event) { //функция сохранения карт
   elementPopUpClose();
 }
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-initialCards.forEach(loadElement);
+initialCards.forEach(addElement);
 
 
 editButton.addEventListener('click', profilePopUpOpen);
