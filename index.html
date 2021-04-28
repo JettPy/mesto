@@ -32,6 +32,7 @@
       <ul class="elements">
         <template id="element">
           <li class="element">
+            <button class="button button_type_image" type="button"></button>
             <button class="button button_type_del" aria-label="Удалить" type="button"></button>
             <img alt="Карточка" class="element__image">
             <div class="element__group">
@@ -50,8 +51,8 @@
   </footer>
 
   <div class="popup">
-    <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
     <div class="popup__content">
+      <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="profile-info">
         <input class="popup__input popup__input_field_name" type="text" name="name">
@@ -62,8 +63,8 @@
   </div>
 
   <div class="popup">
-    <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
     <div class="popup__content">
+      <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" name="element-info">
         <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название">
@@ -71,6 +72,14 @@
         <button class="button button_type_save" aria-label="Сохрнить" type="submit">Сохрнить</button>
       </form>
     </div>
+  </div>
+
+  <div class="popup">
+    <figure class="popup__figure">
+      <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
+      <img src="#" alt="Картинка" class="popup__image">
+      <figcaption class="popup__caption"></figcaption>
+    </figure>
   </div>
 
   <script src="./scripts/script.js"></script>

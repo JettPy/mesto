@@ -12,11 +12,15 @@ const closeEditButton = popup[0].querySelector('.button_type_close');
 const addButton = document.querySelector('.button_type_add');
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#element').content;
-//   element popup
+//   elements popup
 const elementForm = popup[1].querySelector('.popup__form');
 const inputTitle = popup[1].querySelector('.popup__input_field_title');
 const inputImage = popup[1].querySelector('.popup__input_field_image');
 const closeElementButton = popup[1].querySelector('.button_type_close');
+//   element popup
+const closeImageButton = popup[2].querySelector('.button_type_close');
+const popUpImage = popup[2].querySelector('.popup__image');
+const popUpCaption = popup[2].querySelector('.popup__caption');
 
 const initialCards = [
   {
@@ -66,9 +70,11 @@ function addElement(card) { //функция добавление карточе
 
   const likeButton = cardElement.querySelector('.button_type_like');
   const deliteButton = cardElement.querySelector('.button_type_del');
+  const openButton = cardElement.querySelector('.button_type_image');
 
   likeButton.addEventListener('click', likeClck);
   deliteButton.addEventListener('click', deleteClck);
+  openButton.addEventListener('click', imagePopUpOpen);
 }
 
 function profilePopUpOpen() { //функция открытия popup профиля
@@ -88,6 +94,17 @@ function elementPopUpClose() { //функция закрытия popup элем�
   inputTitle.value = '';
   inputImage.value = '';
   popup[1].classList.remove('popup_opened');
+}
+
+function imagePopUpOpen(event) { //функция открытия карточки с картинкой
+  console.log('Клик!');
+  popup[2].classList.add('popup_opened');
+  popUpImage.src = event.target.nextElementSibling.nextElementSibling.src;
+  popUpCaption.textContent = event.target.closest('.element').querySelector('.element__title').textContent;
+}
+
+function imagePopUpClose() { //функция закрытия карточки с картинкой
+  popup[2].classList.remove('popup_opened');
 }
 
 function saveProfileData(event) { //функция сохранения имени и статуса пользователя
@@ -117,3 +134,4 @@ addButton.addEventListener('click', elementPopUpOpen);
 closeElementButton.addEventListener('click', elementPopUpClose);
 profileForm.addEventListener('submit', saveProfileData);
 elementForm.addEventListener('submit', saveElementData);
+closeImageButton.addEventListener('click', imagePopUpClose);
