@@ -1,9 +1,9 @@
-.button_type_del {
+.button_type_delete {
   width: 18px;
   height: 19.3px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  background-image: url(../../../images/del-icon.svg);
+  background-image: url(../../../images/delete-icon.svg);
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 0.3s linear;
@@ -12,6 +12,6 @@
   right: 15px;
 }
 
-.button_type_del:hover {
+.button_type_delete:hover {
   opacity: 0.5;
 }

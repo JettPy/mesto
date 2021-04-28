@@ -33,8 +33,8 @@
         <template id="element">
           <li class="element">
             <button class="button button_type_image" type="button"></button>
-            <button class="button button_type_del" aria-label="Удалить" type="button"></button>
-            <img alt="Карточка" class="element__image">
+            <button class="button button_type_delete" aria-label="Удалить" type="button"></button>
+            <img class="element__image">
             <div class="element__group">
               <h2 class="element__title"></h2>
               <button class="button button_type_like" aria-label="Лайк" type="button"></button>
@@ -50,7 +50,7 @@
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup popup_place_profile">
     <div class="popup__content">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="popup">
+  <div class="popup popup_place_add-element">
     <div class="popup__content">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
@@ -74,10 +74,10 @@
     </div>
   </div>
 
-  <div class="popup">
+  <div class="popup popup_place_element-image">
     <figure class="popup__figure">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
-      <img src="#" alt="Картинка" class="popup__image">
+      <img class="popup__image">
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
