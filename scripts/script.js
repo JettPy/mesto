@@ -1,26 +1,26 @@
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 //   profile
 const name = document.querySelector('.profile__name');
 const status = document.querySelector('.profile__status');
 const editButton = document.querySelector('.button_type_edit');
 //   profile popup
-const profileForm = popup[0].querySelector('.popup__form');
-const inputName = popup[0].querySelector('.popup__input_field_name');
-const inputStatus = popup[0].querySelector('.popup__input_field_status');
-const closeEditButton = popup[0].querySelector('.button_type_close');
+const profileForm = popups[0].querySelector('.popup__form');
+const inputName = popups[0].querySelector('.popup__input_field_name');
+const inputStatus = popups[0].querySelector('.popup__input_field_status');
+const closeEditButton = popups[0].querySelector('.button_type_close');
 //   elements
 const addButton = document.querySelector('.button_type_add');
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#element').content;
 //   elements popup
-const elementForm = popup[1].querySelector('.popup__form');
-const inputTitle = popup[1].querySelector('.popup__input_field_title');
-const inputImage = popup[1].querySelector('.popup__input_field_image');
-const closeElementButton = popup[1].querySelector('.button_type_close');
+const elementForm = popups[1].querySelector('.popup__form');
+const inputTitle = popups[1].querySelector('.popup__input_field_title');
+const inputImage = popups[1].querySelector('.popup__input_field_image');
+const closeElementButton = popups[1].querySelector('.button_type_close');
 //   element popup
-const closeImageButton = popup[2].querySelector('.button_type_close');
-const popUpImage = popup[2].querySelector('.popup__image');
-const popUpCaption = popup[2].querySelector('.popup__caption');
+const closeImageButton = popups[2].querySelector('.button_type_close');
+const popUpImage = popups[2].querySelector('.popup__image');
+const popUpCaption = popups[2].querySelector('.popup__caption');
 
 const initialCards = [
   {
@@ -79,31 +79,31 @@ function addElement(card) { //функция добавление карточе
 
 function profilePopUpOpen() { //функция открытия popup профиля
   refresh();
-  popup[0].classList.add('popup_opened');
+  popups[0].classList.add('popup_opened');
 }
 
 function profilePopUpClose() { //функция закрытия popup профиля
-  popup[0].classList.remove('popup_opened');
+  popups[0].classList.remove('popup_opened');
 }
 
 function elementPopUpOpen() { //функция открытия popup элемента
-  popup[1].classList.add('popup_opened');
+  popups[1].classList.add('popup_opened');
 }
 
 function elementPopUpClose() { //функция закрытия popup элемента
   inputTitle.value = '';
   inputImage.value = '';
-  popup[1].classList.remove('popup_opened');
+  popups[1].classList.remove('popup_opened');
 }
 
 function imagePopUpOpen(event) { //функция открытия карточки с картинкой
-  popup[2].classList.add('popup_opened');
+  popups[2].classList.add('popup_opened');
   popUpImage.src = event.target.nextElementSibling.nextElementSibling.src;
   popUpCaption.textContent = event.target.closest('.element').querySelector('.element__title').textContent;
 }
 
 function imagePopUpClose() { //функция закрытия карточки с картинкой
-  popup[2].classList.remove('popup_opened');
+  popups[2].classList.remove('popup_opened');
 }
 
 function saveProfileData(event) { //функция сохранения имени и статуса пользователя
