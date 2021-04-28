@@ -97,7 +97,6 @@ function elementPopUpClose() { //функция закрытия popup элем�
 }
 
 function imagePopUpOpen(event) { //функция открытия карточки с картинкой
-  console.log('Клик!');
   popup[2].classList.add('popup_opened');
   popUpImage.src = event.target.nextElementSibling.nextElementSibling.src;
   popUpCaption.textContent = event.target.closest('.element').querySelector('.element__title').textContent;
