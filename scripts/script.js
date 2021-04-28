@@ -71,12 +71,6 @@ function createCardElement(card) { //функция создания карто�
   elementImage.src = card.link;
   elementImage.alt = card.name;
   elementTitle.textContent = card.name;
-  return cardElement;
-}
-
-function addElement(card) { //функция добавление карточек с картинками
-  const cardElement = createCardElement(card);
-  elements.prepend(cardElement);
 
   const likeButton = cardElement.querySelector('.button_type_like');
   const deliteButton = cardElement.querySelector('.button_type_delete');
@@ -85,6 +79,13 @@ function addElement(card) { //функция добавление карточе
   likeButton.addEventListener('click', handleLikeClick);
   deliteButton.addEventListener('click', handleDeleteClick);
   openButton.addEventListener('click', () => openImagePopUp(card.link, card.name));
+  
+  return cardElement;
+}
+
+function addElement(card) { //функция добавление карточек с картинками
+  const cardElement = createCardElement(card);
+  elements.prepend(cardElement);
 }
 
 function openPopup(popup) { //функция открытия popup
