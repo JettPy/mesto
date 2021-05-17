@@ -30,17 +30,6 @@
 
     <section class="content__section">
       <ul class="elements">
-        <template id="element">
-          <li class="element">
-            <button class="button button_type_image" type="button"></button>
-            <button class="button button_type_delete" aria-label="Удалить" type="button"></button>
-            <img class="element__image">
-            <div class="element__group">
-              <h2 class="element__title"></h2>
-              <button class="button button_type_like" aria-label="Лайк" type="button"></button>
-            </div>
-          </li>
-        </template>
       </ul>
     </section>
 
@@ -81,6 +70,18 @@
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
+
+  <template id="element">
+    <li class="element">
+      <button class="button button_type_image" type="button"></button>
+      <button class="button button_type_delete" aria-label="Удалить" type="button"></button>
+      <img class="element__image">
+      <div class="element__group">
+        <h2 class="element__title"></h2>
+        <button class="button button_type_like" aria-label="Лайк" type="button"></button>
+      </div>
+    </li>
+  </template>
 
   <script src="./scripts/script.js"></script>
 
