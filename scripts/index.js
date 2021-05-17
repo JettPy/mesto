@@ -54,7 +54,7 @@ const initialCards = [
 ];
 
 function refreshForm(popup, form) { //функция обновления полей в форме
-  const saveEditButton = popup.querySelector('.button_type_save');
+  const saveEditButton = popup.querySelector('.popup__button');
   inputName.value = profileName.textContent;
   inputStatus.value = profileStatus.textContent;
   const inputList = Array.from(form.querySelectorAll('.popup__input'));
@@ -91,7 +91,7 @@ function createCardElement(card) { //функция создания карто�
   return cardElement;
 }
 
-function exitViaEsc(event) {
+function exitViaEsc(event) { //функция выхода из попапа по esc
   if (event.key === 'Escape') {
     closeProfilePopUp();
     closeElementPopUp();
@@ -163,7 +163,6 @@ function saveElementData(event) { //функция сохранения карт
 
 initialCards.forEach(addElement);
 
-
 editButton.addEventListener('click', openProfilePopUp);
 closeEditButton.addEventListener('click', closeProfilePopUp);
 addButton.addEventListener('click', openElementPopUp);
@@ -173,10 +172,10 @@ elementForm.addEventListener('submit', saveElementData);
 closeImageButton.addEventListener('click', closeImagePopUp);
 overlays.forEach((overlay) => {
   const window = overlay.querySelector('.dialog-window');
-  window.addEventListener('click', (event) => {
+  window.addEventListener('mousedown', (event) => {
     event.stopPropagation();
   });
-  overlay.addEventListener('click', (event) => {
+  overlay.addEventListener('mousedown', (event) => {
     closePopup(event.target.closest('.popup'));
   });
 });
