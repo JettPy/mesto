@@ -23,8 +23,8 @@ const elementImagePopUp = document.querySelector('.popup_place_element-image');
 const closeImageButton = elementImagePopUp.querySelector('.button_type_close');
 const popUpImage = elementImagePopUp.querySelector('.popup__image');
 const popUpCaption = elementImagePopUp.querySelector('.popup__caption');
-//popups
-const popUps = Array.from(document.querySelectorAll('.popup'));
+//overlays
+const overlays = Array.from(document.querySelectorAll('.popup'));
 
 const initialCards = [
   {
@@ -171,3 +171,12 @@ closeElementButton.addEventListener('click', closeElementPopUp);
 profileForm.addEventListener('submit', saveProfileData);
 elementForm.addEventListener('submit', saveElementData);
 closeImageButton.addEventListener('click', closeImagePopUp);
+overlays.forEach((overlay) => {
+  const window = overlay.querySelector('.dialog-window');
+  window.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+  overlay.addEventListener('click', (event) => {
+    closePopup(event.target.closest('.popup'));
+  });
+});
