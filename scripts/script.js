@@ -23,6 +23,8 @@ const elementImagePopUp = document.querySelector('.popup_place_element-image');
 const closeImageButton = elementImagePopUp.querySelector('.button_type_close');
 const popUpImage = elementImagePopUp.querySelector('.popup__image');
 const popUpCaption = elementImagePopUp.querySelector('.popup__caption');
+//popups
+const popUps = Array.from(document.querySelectorAll('.popup'));
 
 const initialCards = [
   {
@@ -89,6 +91,14 @@ function createCardElement(card) { //функция создания карто�
   return cardElement;
 }
 
+function exitViaEsc(event) {
+  if (event.key === 'Escape') {
+    closeProfilePopUp();
+    closeElementPopUp();
+    closeImagePopUp();
+  }
+}
+
 function addElement(card) { //функция добавление карточек с картинками
   const cardElement = createCardElement(card);
   elements.prepend(cardElement);
@@ -96,10 +106,12 @@ function addElement(card) { //функция добавление карточе
 
 function openPopup(popup) { //функция открытия popup
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', exitViaEsc);
 }
 
 function closePopup(popup) { //функция закрытия popup
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', exitViaEsc);
 }
 
 function openProfilePopUp() { //функция открытия popup профиля

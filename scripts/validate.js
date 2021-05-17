@@ -44,8 +44,8 @@ const setEventListeners = (formElement, config) => { //функция созда
 const enableValidation = (config) => { //функция создания оброботчиков форм
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
+    formElement.addEventListener('submit', function (event) {
+      event.preventDefault();
     });
 
     const fieldsetList = Array.from(formElement.querySelectorAll('.popup__set'));
