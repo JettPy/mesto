@@ -43,10 +43,14 @@
     <div class="popup__content">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="profile-info">
-        <input class="popup__input popup__input_field_name" type="text" name="name">
-        <input class="popup__input popup__input_field_status" type="text" name="status">
-        <button class="button button_type_save" aria-label="Сохрнить" type="submit">Сохрнить</button>
+      <form class="popup__form" name="profile" novalidate>
+        <fieldset class="popup__set">
+          <input class="popup__input popup__input_field_name" type="text" name="name" placeholder="Имя" id="name-input" minlength="2" maxlength="40" required>
+          <span class="popup__error name-input-error"></span>
+          <input class="popup__input popup__input_field_status" type="text" name="status" placeholder="Статус" id="status-input" minlength="2" maxlength="200" required>
+          <span class="popup__error status-input-error"></span>
+          <button class="button button_type_save popup__button" aria-label="Сохрнить" type="submit">Сохрнить</button>
+        </fieldset>
       </form>
     </div>
   </div>
@@ -55,10 +59,14 @@
     <div class="popup__content">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="element-info">
-        <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название">
-        <input class="popup__input popup__input_field_image" type="url" name="image" placeholder="Ссылка на картинку">
-        <button class="button button_type_save" aria-label="Сохрнить" type="submit">Сохрнить</button>
+      <form class="popup__form" name="element" novalidate>
+        <fieldset class="popup__set">
+          <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название" id="title-input" minlength="1" maxlength="30" required>
+          <span class="popup__error title-input-error"></span>
+          <input class="popup__input popup__input_field_image" type="url" name="image" placeholder="Ссылка на картинку" id="image-input" required>
+          <span class="popup__error image-input-error"></span>
+          <button class="button button_type_save popup__button" aria-label="Сохрнить" type="submit">Сохрнить</button>
+        </fieldset>
       </form>
     </div>
   </div>
@@ -82,7 +90,7 @@
       </div>
     </li>
   </template>
-
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/script.js"></script>
 
 </body>

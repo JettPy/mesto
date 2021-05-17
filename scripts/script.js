@@ -4,7 +4,7 @@ const profileStatus = document.querySelector('.profile__status');
 const editButton = document.querySelector('.button_type_edit');
 //   profile popup
 const profilePopUp = document.querySelector('.popup_place_profile');
-const profileForm = profilePopUp.querySelector('.popup__form');
+const profileForm = document.forms.profile;
 const inputName = profilePopUp.querySelector('.popup__input_field_name');
 const inputStatus = profilePopUp.querySelector('.popup__input_field_status');
 const closeEditButton = profilePopUp.querySelector('.button_type_close');
@@ -14,7 +14,7 @@ const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#element').content;
 //   elements popup
 const elementAddingPopUp = document.querySelector('.popup_place_add-element');
-const elementForm = elementAddingPopUp.querySelector('.popup__form');
+const elementForm = document.forms.element;
 const inputTitle = elementAddingPopUp.querySelector('.popup__input_field_title');
 const inputImage = elementAddingPopUp.querySelector('.popup__input_field_image');
 const closeElementButton = elementAddingPopUp.querySelector('.button_type_close');
@@ -51,9 +51,15 @@ const initialCards = [
   }
 ];
 
-function refresh() { //функция обновления полей в форме
+function refreshForm(popup, form) { //функция обновления полей в форме
+  const saveEditButton = popup.querySelector('.button_type_save');
   inputName.value = profileName.textContent;
   inputStatus.value = profileStatus.textContent;
+  const inputList = Array.from(form.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement) => {
+    hideInputError(form, inputElement, config);
+  });
+  toggleButtonState(inputList, saveEditButton, config);
 }
 
 function handleLikeClick(event) { //функция активации лайка
@@ -79,7 +85,7 @@ function createCardElement(card) { //функция создания карто�
   likeButton.addEventListener('click', handleLikeClick);
   deliteButton.addEventListener('click', handleDeleteClick);
   openButton.addEventListener('click', () => openImagePopUp(card.link, card.name));
-  
+
   return cardElement;
 }
 
@@ -97,7 +103,7 @@ function closePopup(popup) { //функция закрытия popup
 }
 
 function openProfilePopUp() { //функция открытия popup профиля
-  refresh();
+  refreshForm(profilePopUp, profileForm);
   openPopup(profilePopUp);
 }
 
@@ -106,12 +112,12 @@ function closeProfilePopUp() { //функция закрытия popup проф�
 }
 
 function openElementPopUp() { //функция открытия popup элемента
+  refreshForm(elementAddingPopUp, elementForm);
   openPopup(elementAddingPopUp);
 }
 
 function closeElementPopUp() { //функция закрытия popup элемента
-  inputTitle.value = '';
-  inputImage.value = '';
+  elementForm.reset();
   closePopup(elementAddingPopUp);
 }
 
