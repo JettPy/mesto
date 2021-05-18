@@ -49,7 +49,7 @@
           <span class="popup__error name-input-error"></span>
           <input class="popup__input popup__input_field_status" type="text" name="status" placeholder="Статус" id="status-input" minlength="2" maxlength="200" required>
           <span class="popup__error status-input-error"></span>
-          <button class="button popup__button" aria-label="Сохрнить" type="submit">Сохрнить</button>
+          <button class="button popup__button" aria-label="Сохранить" type="submit">Сохранить</button>
         </fieldset>
       </form>
     </div>
@@ -61,11 +61,11 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" name="element" novalidate>
         <fieldset class="popup__set">
-          <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название" id="title-input" minlength="1" maxlength="30" required>
+          <input class="popup__input popup__input_field_title" type="text" name="title" placeholder="Название" id="title-input" minlength="2" maxlength="30" required>
           <span class="popup__error title-input-error"></span>
           <input class="popup__input popup__input_field_image" type="url" name="image" placeholder="Ссылка на картинку" id="image-input" required>
           <span class="popup__error image-input-error"></span>
-          <button class="button popup__button" aria-label="Сохрнить" type="submit">Сохрнить</button>
+          <button class="button popup__button" aria-label="Сохранить" type="submit">Сохранить</button>
         </fieldset>
       </form>
     </div>
@@ -74,7 +74,7 @@
   <div class="popup popup_place_element-image">
     <figure class="popup__figure dialog-window">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
-      <img class="popup__image" alt="Картинка" src="./images/card.jpg">
+      <img class="popup__image" alt="Картинка" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
@@ -91,6 +91,7 @@
     </li>
   </template>
 
+  <script src="scripts/initial-сards.js"></script>
   <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 

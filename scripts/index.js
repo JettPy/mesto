@@ -26,33 +26,6 @@ const popUpCaption = elementImagePopUp.querySelector('.popup__caption');
 //overlays
 const overlays = Array.from(document.querySelectorAll('.popup'));
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 function refreshForm(popup, form) { //функция обновления полей в форме
   const saveEditButton = popup.querySelector('.popup__button');
   inputName.value = profileName.textContent;
@@ -93,9 +66,8 @@ function createCardElement(card) { //функция создания карто�
 
 function exitViaEsc(event) { //функция выхода из попапа по esc
   if (event.key === 'Escape') {
-    closeProfilePopUp();
-    closeElementPopUp();
-    closeImagePopUp();
+    const openedPopUp = document.querySelector('.popup_opened');
+    closePopup(openedPopUp);
   }
 }
 
@@ -114,25 +86,6 @@ function closePopup(popup) { //функция закрытия popup
   document.removeEventListener('keydown', exitViaEsc);
 }
 
-function openProfilePopUp() { //функция открытия popup профиля
-  refreshForm(profilePopUp, profileForm);
-  openPopup(profilePopUp);
-}
-
-function closeProfilePopUp() { //функция закрытия popup профиля
-  closePopup(profilePopUp);
-}
-
-function openElementPopUp() { //функция открытия popup элемента
-  refreshForm(elementAddingPopUp, elementForm);
-  openPopup(elementAddingPopUp);
-}
-
-function closeElementPopUp() { //функция закрытия popup элемента
-  elementForm.reset();
-  closePopup(elementAddingPopUp);
-}
-
 function openImagePopUp(link, name) { //функция открытия карточки с картинкой
   popUpImage.src = link
   popUpImage.alt = name
@@ -144,32 +97,53 @@ function closeImagePopUp() { //функция закрытия карточки 
   closePopup(elementImagePopUp);
 }
 
-function saveProfileData(event) { //функция сохранения имени и статуса пользователя
+function handleProfileFormSubmit(event) { //функция сохранения имени и статуса пользователя
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileStatus.textContent = inputStatus.value;
-  closeProfilePopUp();
+  closePopup(profilePopUp);
 }
 
-function saveElementData(event) { //функция сохранения карточки с картинкой
+function handleCardFormSubmit(event) { //функция сохранения карточки с картинкой
   event.preventDefault();
   const element = {
     name: inputTitle.value,
     link: inputImage.value,
   }
   addElement(element);
-  closeElementPopUp();
+  elementForm.reset();
+  closePopup(elementAddingPopUp);
 }
 
 initialCards.forEach(addElement);
 
-editButton.addEventListener('click', openProfilePopUp);
-closeEditButton.addEventListener('click', closeProfilePopUp);
-addButton.addEventListener('click', openElementPopUp);
-closeElementButton.addEventListener('click', closeElementPopUp);
-profileForm.addEventListener('submit', saveProfileData);
-elementForm.addEventListener('submit', saveElementData);
-closeImageButton.addEventListener('click', closeImagePopUp);
+editButton.addEventListener('click', () => {
+  refreshForm(profilePopUp, profileForm);
+  openPopup(profilePopUp);
+});
+
+closeEditButton.addEventListener('click', () => {
+  closePopup(profilePopUp);
+});
+
+addButton.addEventListener('click', () => {
+  refreshForm(elementAddingPopUp, elementForm);
+  openPopup(elementAddingPopUp);
+});
+
+closeElementButton.addEventListener('click', () => {
+  elementForm.reset();
+  closePopup(elementAddingPopUp);
+});
+
+profileForm.addEventListener('submit', handleProfileFormSubmit);
+
+elementForm.addEventListener('submit', handleCardFormSubmit);
+
+closeImageButton.addEventListener('click', () => {
+  closePopup(elementImagePopUp);
+});
+
 overlays.forEach((overlay) => {
   const window = overlay.querySelector('.dialog-window');
   window.addEventListener('mousedown', (event) => {
