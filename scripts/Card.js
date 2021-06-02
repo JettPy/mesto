@@ -1,10 +1,10 @@
 import { openPopup, closePopup } from './functions.js';
 
-const elementImagePopUp = document.querySelector('.popup_place_element-image');
+const cardPopUp = document.querySelector('.popup_place_element-image');
 
-const closeImageButton = elementImagePopUp.querySelector('.button_type_close');
-const popUpImage = elementImagePopUp.querySelector('.popup__image');
-const popUpCaption = elementImagePopUp.querySelector('.popup__caption');
+const closeCardButton = cardPopUp.querySelector('.button_type_close');
+const popUpImage = cardPopUp.querySelector('.popup__image');
+const popUpCaption = cardPopUp.querySelector('.popup__caption');
 
 class Card {
   constructor(data, cardSelector) { //Конструктор карточки
@@ -33,14 +33,14 @@ class Card {
     popUpImage.src = this._image;
     popUpImage.alt = this._title;
     popUpCaption.textContent = this._title;
-    openPopup(elementImagePopUp);
+    openPopup(cardPopUp);
   }
 
   _handleClosePopup() { //Закрытие попапа картиочки
     popUpImage.src = '';
     popUpImage.alt = '';
     popUpCaption.textContent = '';
-    closePopup(elementImagePopUp);
+    closePopup(cardPopUp);
   }
 
   _setEventListeners() { //Установка слушателей событий на карточке
@@ -57,7 +57,7 @@ class Card {
     openButton.addEventListener('click', () => {
       this._handleOpenPopup();
     });
-    closeImageButton.addEventListener('click', () => {
+    closeCardButton.addEventListener('click', () => {
       this._handleClosePopup();
     });
   }

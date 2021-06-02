@@ -1,9 +1,10 @@
 import { initialCards } from './initial-data.js';
-import { profileFormValidator, elementFormValidator, addCard } from './forms.js';
+import { editProfileFormValidator, addCardFormValidator } from './forms.js';
+import { addCard } from './functions.js';
 
 initialCards.forEach((item) => {
   addCard(item, '#element');
 });
 
-profileFormValidator.enableValidation();
-elementFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
