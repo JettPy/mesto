@@ -1,6 +1,5 @@
 import { initialCards } from './initial-data.js';
-import { editProfileFormValidator, addCardFormValidator } from './forms.js';
-import { addCard } from './functions.js';
+import { editProfileFormValidator, addCardFormValidator, addCard } from './forms.js';
 
 initialCards.forEach((item) => {
   addCard(item, '#element');

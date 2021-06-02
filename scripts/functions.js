@@ -1,6 +1,3 @@
-import { Card } from './Card.js';
-
-const cards = document.querySelector('.elements');
 const overlays = Array.from(document.querySelectorAll('.popup'));
 
 function exitViaEsc(event) { //Функция выхода из попапа по esc
@@ -20,12 +17,6 @@ function closePopup(popup) { //Функция закрытия popup
   document.removeEventListener('keydown', exitViaEsc);
 }
 
-function addCard(element, cardSelector) { //функция добавление карточек в разметку
-  const card = new Card(element, cardSelector);
-  const cardElement = card.generateCard();
-  cards.prepend(cardElement);
-}
-
 overlays.forEach((overlay) => { //Закрытие попапов по нажатию на оверлею
   const window = overlay.querySelector('.dialog-window');
   window.addEventListener('mousedown', (event) => {
@@ -36,4 +27,4 @@ overlays.forEach((overlay) => { //Закрытие попапов по нажа�
   });
 });
 
-export { openPopup, closePopup, addCard };
+export { openPopup, closePopup };

@@ -1,6 +1,9 @@
 import { config } from './initial-data.js';
+import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-import { openPopup, closePopup, addCard } from './functions.js';
+import { openPopup, closePopup } from './functions.js';
+
+const cards = document.querySelector('.elements');
 
 const editProfileFormPopup = document.querySelector('.popup_place_profile');
 const addCardFormPopup = document.querySelector('.popup_place_add-element');
@@ -41,6 +44,12 @@ function handleCardFormSubmit(event) { //Функция сохранения к�
   closePopup(addCardFormPopup);
 }
 
+function addCard(element, cardSelector) { //Функция добавление карточек в разметку
+  const card = new Card(element, cardSelector);
+  const cardElement = card.generateCard();
+  cards.prepend(cardElement);
+}
+
 editProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addCardForm.addEventListener('submit', handleCardFormSubmit);
@@ -66,4 +75,4 @@ closeAddCardButton.addEventListener('click', () => {
   closePopup(addCardFormPopup);
 });
 
-export { editProfileFormValidator, addCardFormValidator };
+export { editProfileFormValidator, addCardFormValidator, addCard };
