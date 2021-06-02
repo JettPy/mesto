@@ -1,5 +1,6 @@
-import { elementImagePopUp } from './popups.js';
 import { openPopup, closePopup } from './functions.js';
+
+const elementImagePopUp = document.querySelector('.popup_place_element-image');
 
 const closeImageButton = elementImagePopUp.querySelector('.button_type_close');
 const popUpImage = elementImagePopUp.querySelector('.popup__image');
@@ -14,6 +15,8 @@ class Card {
 
   _getTemplate() {  //Получение шаблона карточки
     const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
+    this._templateImage = cardElement.querySelector('.element__image');
+    this._templateTitle = cardElement.querySelector('.element__title');
     return cardElement;
   }
 
@@ -21,8 +24,9 @@ class Card {
     event.target.classList.toggle('button_active');
   }
 
-  _handleDeleteClick(event) { //Функция удаления карточки с картинкой
-    event.target.closest('.element').remove();
+  _handleDeleteClick() { //Функция удаления карточки с картинкой
+    this._element.remove();
+    this._element = null;
   }
 
   _handleOpenPopup() { //Открытие попапа картиочки
@@ -47,8 +51,8 @@ class Card {
     likeButton.addEventListener('click', (event) => {
       this._handleLikeClick(event);
     });
-    deliteButton.addEventListener('click', (event) => {
-      this._handleDeleteClick(event);
+    deliteButton.addEventListener('click', () => {
+      this._handleDeleteClick();
     });
     openButton.addEventListener('click', () => {
       this._handleOpenPopup();
@@ -61,9 +65,9 @@ class Card {
   generateCard() { //Генерация DOM-элемента карточки
     this._element = this._getTemplate();
     this._setEventListeners();
-    this._element.querySelector('.element__image').src = this._image;
-    this._element.querySelector('.element__image').alt = this._title;
-    this._element.querySelector('.element__title').textContent = this._title;
+    this._templateImage.src = this._image;
+    this._templateImage.alt = this._title;
+    this._templateTitle.textContent = this._title;
     return this._element;
   }
 }

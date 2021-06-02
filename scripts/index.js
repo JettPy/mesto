@@ -1,13 +1,8 @@
-import { Card } from './Card.js';
-import { initialCards, config } from './initial-сards-and-config.js';
-import { profileFormValidator, elementFormValidator } from './forms.js';
-
-const elements = document.querySelector('.elements');
+import { initialCards } from './initial-data.js';
+import { profileFormValidator, elementFormValidator, addCard } from './forms.js';
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '#element');
-  const cardElement = card.generateCard();
-  elements.prepend(cardElement);
+  addCard(item, '#element');
 });
 
 profileFormValidator.enableValidation();
