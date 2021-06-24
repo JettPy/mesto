@@ -4,21 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 
 <body class="page">
 
   <header class="header page__header">
-    <img src="./images/logo.svg" alt="Место" class="header__logo">
+    <img src="<%=require('./images/logo.svg')%>" alt="Место" class="header__logo">
   </header>
 
   <main class="content page__content">
 
     <section class="profile">
       <div class="profile__container">
-        <img src="./images/avatar.jpg" alt="Аватар профиля" class="profile__avatar">
+        <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар профиля" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__status">Исследователь океана</p>
@@ -74,7 +73,7 @@
   <div class="popup popup_place_element-image">
     <figure class="popup__figure dialog-window">
       <button class="button button_type_close" aria-label="Закрыть" type="button"></button>
-      <img class="popup__image" alt="Картинка" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
+      <img class="popup__image" alt="" src="">
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
@@ -90,8 +89,6 @@
       </div>
     </li>
   </template>
-
-  <script type="module" src="./scripts/index.js"></script>
 
 </body>
 

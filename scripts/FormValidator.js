@@ -58,9 +58,6 @@ class FormValidator {
   }
 
   enableValidation() { //Функция создания оброботчиков форм
-    this._formElement.addEventListener('submit', function (event) {
-      event.preventDefault();
-    });
     this._setEventListeners();
   }
 
