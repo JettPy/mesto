@@ -1,16 +1,9 @@
-import { openPopup, closePopup } from './functions.js';
-
-const cardPopUp = document.querySelector('.popup_place_element-image');
-
-const closeCardButton = cardPopUp.querySelector('.button_type_close');
-const popUpImage = cardPopUp.querySelector('.popup__image');
-const popUpCaption = cardPopUp.querySelector('.popup__caption');
-
 class Card {
-  constructor(data, cardSelector) { //Конструктор карточки
+  constructor(data, cardSelector, handleCardClick) { //Конструктор карточки
     this._title = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handler = handleCardClick;
   }
 
   _getTemplate() {  //Получение шаблона карточки
@@ -20,27 +13,13 @@ class Card {
     return cardElement;
   }
 
-  _handleLikeClick(event) { //Функция активации лайка
+  _handleLikeClick(event) { //Метод активации лайка
     event.target.classList.toggle('button_active');
   }
 
-  _handleDeleteClick() { //Функция удаления карточки с картинкой
+  _handleDeleteClick() { //Метод удаления карточки с картинкой
     this._element.remove();
     this._element = null;
-  }
-
-  _handleOpenPopup() { //Открытие попапа картиочки
-    popUpImage.src = this._image;
-    popUpImage.alt = this._title;
-    popUpCaption.textContent = this._title;
-    openPopup(cardPopUp);
-  }
-
-  _handleClosePopup() { //Закрытие попапа картиочки
-    popUpImage.src = '';
-    popUpImage.alt = '';
-    popUpCaption.textContent = '';
-    closePopup(cardPopUp);
   }
 
   _setEventListeners() { //Установка слушателей событий на карточке
@@ -55,10 +34,7 @@ class Card {
       this._handleDeleteClick();
     });
     openButton.addEventListener('click', () => {
-      this._handleOpenPopup();
-    });
-    closeCardButton.addEventListener('click', () => {
-      this._handleClosePopup();
+      this._handler(this._image, this._title);
     });
   }
 
