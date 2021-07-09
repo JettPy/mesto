@@ -43,8 +43,7 @@ function renderCards(initialCards) { //Функция заполнение rка
 
 function handleProfileFormSubmit(event, data) { //Функция сохранения имени и статуса пользователя
   event.preventDefault();
-  const button = this._popup.querySelector(".popup__button");
-  button.textContent = 'Сохранение...';
+  editProfilePopup.renderLoading(true);
   api.updateUserInfo(data.name, data.status)
     .then(() => {
       userInfo.setUserInfo(data);
@@ -54,14 +53,13 @@ function handleProfileFormSubmit(event, data) { //Функция сохране�
       console.log(error);
     })
     .finally(() => {
-      button.textContent = 'Сохранить';
+      editProfilePopup.renderLoading(false);
     });
 }
 
 function handleCardFormSubmit(event, data) { //Функция сохранения карточки с картинкой
   event.preventDefault();
-  const button = this._popup.querySelector(".popup__button");
-  button.textContent = 'Сохранение...';
+  addCardPopup.renderLoading(true);
   api.addCard(data.title, data.image)
     .then((result) => {
       addCard(result);
@@ -71,14 +69,13 @@ function handleCardFormSubmit(event, data) { //Функция сохранени
       console.log(error);
     })
     .finally(() => {
-      button.textContent = 'Сохранить';
+      addCardPopup.renderLoading(false);
     });
 }
 
 function handleAvatarFormSubmit(event, data) { //Функция сохранения аватара пользователя
   event.preventDefault();
-  const button = this._popup.querySelector(".popup__button");
-  button.textContent = 'Сохранение...';
+  editAvatarPopup.renderLoading(true);
   api.updateAvatar(data.avatar)
     .then(() => {
       userInfo.setUserAvatar(data.avatar);
@@ -88,7 +85,7 @@ function handleAvatarFormSubmit(event, data) { //Функция сохранен
       console.log(error);
     })
     .finally(() => {
-      button.textContent = 'Сохранить';
+      editAvatarPopup.renderLoading(false);
     });
 }
 
@@ -124,17 +121,19 @@ function handleCardLike(card) { //Лайк/Дизлайк карточки
   }
   return likeState
     .then((result) => {
-      card._likes = result.likes;
-      card.handleLikeClick();
+      card.handleLikeClick(result.likes);
     })
     .catch((error) => {
       console.log(error);
     });
 }
 
+function createCard(element) {
+  return new Card(element, '#element', handleCardClick, handleCardDelite, handleCardLike, userInfo.getId()).generateCard();
+}
+
 function addCard(element) { //Функция добавление карточки в секцию
-  const card = new Card(element, '#element', handleCardClick, handleCardDelite, handleCardLike, userInfo.getId());
-  const cardElement = card.generateCard();
+  const cardElement = createCard(element);
   cardSection.addItem(cardElement);
 }
 
@@ -156,17 +155,10 @@ editAvatarButton.addEventListener('click', () => {
   editAvatarPopup.open();
 });
 
-api.getUserInfo()
-  .then((result) => { //Запрос информации о пользователе на сервер
-    renderUser(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
-api.getInitialCards()
-  .then((result) => { //Запрос информации о карточках на сервер
-    renderCards(result);
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then((results) => { //Запрос информации о пользователе и карточках на сервер
+    renderUser(results[0]);
+    renderCards(results[1]);
   })
   .catch((error) => {
     console.log(error);

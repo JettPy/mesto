@@ -6,6 +6,7 @@ class PopupWithForm extends Popup {
     this._handler = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
     this._inputList = Array.from(this._popup.querySelectorAll('.popup__input'));
+    this._submitButton = this._popup.querySelector(".popup__button");
   }
 
   _getInputValues() { //Метод получения данных из формы
@@ -26,6 +27,14 @@ class PopupWithForm extends Popup {
     this._form.addEventListener('submit', (event) => {
       this._handler(event, this._getInputValues());
     });
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = 'Сохранение...';
+    } else {
+      this._submitButton.textContent = 'Сохранить';
+    }
   }
 
 }

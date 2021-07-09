@@ -22,7 +22,8 @@ class Card {
     return cardElement;
   }
 
-  handleLikeClick() { //Метод активации лайка
+  handleLikeClick(likes) { //Метод активации лайка
+    this._likes = likes;
     this._likeButton.classList.toggle('button_active');
     this._templateLikes.textContent = this._likes.length;
   }
