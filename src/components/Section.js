@@ -12,7 +12,7 @@ class Section {
   renderItems() { //Отображение элементов секции
     this._clear();
     for (let i = this._renderedItems.length - 1; i >= 0; --i) {
-      this._renderer(this._renderedItems[i]);
+      this.addItem(this._renderer(this._renderedItems[i]));
     }
   }
 

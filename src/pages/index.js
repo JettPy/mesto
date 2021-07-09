@@ -36,7 +36,7 @@ function renderUser(user) {//Функция заполнение профиля 
 function renderCards(initialCards) { //Функция заполнение rкарточек исходными данными
   cardSection = new Section({
     items: initialCards,
-    renderer: (item) => addCard(item)
+    renderer: (item) => createCard(item)
   }, '.elements');
   cardSection.renderItems();
 }
@@ -62,7 +62,7 @@ function handleCardFormSubmit(event, data) { //Функция сохранени
   addCardPopup.renderLoading(true);
   api.addCard(data.title, data.image)
     .then((result) => {
-      addCard(result);
+      addCard(createCard(result));
       addCardPopup.close();
     })
     .catch((error) => {
@@ -133,8 +133,7 @@ function createCard(element) {
 }
 
 function addCard(element) { //Функция добавление карточки в секцию
-  const cardElement = createCard(element);
-  cardSection.addItem(cardElement);
+  cardSection.addItem(element);
 }
 
 editProfileButton.addEventListener('click', () => {
