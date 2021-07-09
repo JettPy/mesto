@@ -11,9 +11,9 @@ class Section {
 
   renderItems() { //Отображение элементов секции
     this._clear();
-    this._renderedItems.forEach(item => {
-      this._renderer(item);
-    });
+    for (let i = this._renderedItems.length - 1; i >= 0; --i) {
+      this._renderer(this._renderedItems[i]);
+    }
   }
 
   addItem(element) { //Добавление элементов секции в контейнер

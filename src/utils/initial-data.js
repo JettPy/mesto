@@ -34,4 +34,12 @@ const config = {
   errorClass: 'popup__error_visible'
 };
 
-export { initialCards, config };
+const options = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  headers: {
+    authorization: 'bd192512-52fc-48cd-9611-18a277475c8c',
+    'Content-Type': 'application/json'
+  }
+};
+
+export { initialCards, config, options };
