@@ -79,9 +79,9 @@ function handleAvatarFormSubmit(event, data) { //Функция сохранен
   event.preventDefault();
   const button = this._popup.querySelector(".popup__button");
   button.textContent = 'Сохранение...';
-  api.updateAvatar(data.image)
+  api.updateAvatar(data.avatar)
     .then(() => {
-      userInfo.setUserAvatar(data.image);
+      userInfo.setUserAvatar(data.avatar);
       editAvatarPopup.close();
     })
     .catch((error) => {
