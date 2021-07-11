@@ -12,12 +12,12 @@ class Section {
   renderItems() { //Отображение элементов секции
     this._clear();
     for (let i = this._renderedItems.length - 1; i >= 0; --i) {
-      this.addItem(this._renderer(this._renderedItems[i]));
+      this.addItem(this._renderedItems[i]);
     }
   }
 
   addItem(element) { //Добавление элементов секции в контейнер
-    this._container.prepend(element);
+    this._container.prepend(this._renderer(element));
   }
 }
 

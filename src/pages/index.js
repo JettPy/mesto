@@ -62,7 +62,7 @@ function handleCardFormSubmit(event, data) { //Функция сохранени
   addCardPopup.renderLoading(true);
   api.addCard(data.title, data.image)
     .then((result) => {
-      addCard(createCard(result));
+      addCard(result);
       addCardPopup.close();
     })
     .catch((error) => {
